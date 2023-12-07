@@ -1,0 +1,15 @@
+[Unit]
+Description=CPU Temperature Monitor Service
+After=network.target
+
+[Service]
+ExecStart=/home/luky/scripts/systemd_service/cpu_temp_monitor/thermalChecker.py
+Restart=always
+User=luky
+Environment=DISPLAY=:0
+Environment="XAUTHORITY=/home/luky/.Xauthority"
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
